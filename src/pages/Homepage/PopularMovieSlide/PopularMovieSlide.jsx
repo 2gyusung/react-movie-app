@@ -1,9 +1,9 @@
 import React from 'react'
-import { usePopularMovieQuery } from '../../../../hooks/usePopularMovies'
+import { usePopularMovieQuery } from '../../../hooks/usePopularMovies'
 import { Alert } from 'react-bootstrap'
 import 'react-multi-carousel/lib/styles.css';
-import MovieSlider from '../../../../common/MovieSlider/MovieSlider';
-import { responsive } from '../../../../constants/responsive';
+import MovieSlider from '../../../common/MovieSlider/MovieSlider';
+import { responsive } from '../../../constants/responsive';
 
 
 const PopularMovieSlide = () => {
