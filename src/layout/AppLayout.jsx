@@ -1,12 +1,24 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Button, Container, Nav, Navbar, Form } from 'react-bootstrap'; // ✅ bootstrap의 Form 사용
-import { Outlet } from 'react-router-dom';
+import { Outlet, useNavigate } from 'react-router-dom';
 
 const AppLayout = () => {
+
+  const [keyword, setKeyword] = useState("")
+  const navigate = useNavigate()
+
+  const searchByKeword =(event)=> {
+    event.preventDefault()
+    // url 변경
+    navigate(`/movies?q=${keyword}`)
+    setKeyword("")
+
+  }
+
   return (
     <div>
       {/* 네비게이션 바 */}
-      <Navbar expand="lg" className="bg-body-tertiary">
+      <Navbar expand="lg" className="bg-body-tertiary" onSubmit={searchByKeword}>
         <Container fluid>
           <Navbar.Brand href="#">Movies React</Navbar.Brand>
           <Navbar.Toggle aria-controls="navbarScroll" />
@@ -16,8 +28,8 @@ const AppLayout = () => {
               <Nav.Link href="/movies">Movies</Nav.Link>
             </Nav>
             <Form className="d-flex">
-              <Form.Control type="search" placeholder="Search" className="me-2" aria-label="Search" />
-              <Button variant="outline-success">Search</Button>
+              <Form.Control type="search" placeholder="영어로 검색하시오." className="me-2" aria-label="Search" value={keyword} onChange={(event)=> setKeyword(event.target.value)}  />
+              <Button variant="outline-success" type='submit'>Search</Button>
             </Form>
           </Navbar.Collapse>
         </Container>

@@ -10,7 +10,7 @@ const MovieCard = ({movie}) => {
   console.log(genreData);
 
   const showGenre = (genreIdList)=> {
-  if(!genreData) return []
+  if(!genreData) return [] // 도착한 데이터가 없을 시 빈배열로 표시 안하겠다
   const genreNameList = genreIdList.map((id)=> {
   const generObj =  genreData.find((genre)=>genre.id === id)
     return generObj.name;
