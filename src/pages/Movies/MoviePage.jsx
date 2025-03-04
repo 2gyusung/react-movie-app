@@ -4,12 +4,11 @@ import { useSearchMovieQuery } from "../../hooks/useSearchMovie";
 import { Col, Container, Row } from "react-bootstrap";
 import MovieCard from "../../common/MovieCard/MovieCard";
 import ReactPaginate from "react-paginate";
-
-
 import "./MoviePage.style.css";
 import LoadingSpinner from "../../common/LoadingSpinner/LoadingSpinner";
 import ErrorMessage from "../../common/ErrorMessage";
 import SortBy from "../Homepage/components/SortBy";
+
 const MoviePage = () => {
   const [query] = useSearchParams();
   const [sort, setSort] = useState("");
@@ -100,7 +99,7 @@ const MoviePage = () => {
           onPageChange={handlePageClick}
           pageRangeDisplayed={3}
           marginPagesDisplayed={1}
-          pageCount={data?.total_pages > 500 ? 500 : data?.total_pages} //전체 페이지
+          pageCount={data?.total_pages > 500 ? 500 : data?.total_pages}
           previousLabel="<"
           pageClassName="r-page-item"
           pageLinkClassName="r-page-link"
